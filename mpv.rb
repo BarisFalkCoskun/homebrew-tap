@@ -26,6 +26,7 @@ class Mpv < Formula
   depends_on "uchardet"
   depends_on "vapoursynth"
   depends_on "zimg"
+  depends_on "lame"
 
   depends_on "yt-dlp" => :recommended
   depends_on "subliminal" => :recommended
