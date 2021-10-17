@@ -31,17 +31,17 @@ class Mpv < Formula
   depends_on "webp"
   depends_on "rubberband"
   
-  depends_on "yt-dlp" => :recommended
-  depends_on "subliminal" => :recommended
+  depends_on "yt-dlp"
+  depends_on "subliminal"
 
-  depends_on "jack" => :optional
-  depends_on "libaacs" => :optional
-  depends_on "libbluray" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libcdio" => :optional
-  depends_on "libdvdnav" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "sdl2" => :optional
+  depends_on "jack"
+  depends_on "libaacs"
+  depends_on "libbluray"
+  depends_on "libcaca"
+  depends_on "libcdio"
+  depends_on "libdvdnav"
+  depends_on "libdvdread"
+  depends_on "sdl2"
 
   on_macos do
     depends_on "coreutils" => :recommended
