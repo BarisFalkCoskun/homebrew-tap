@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
@@ -8,80 +6,34 @@ class Mpv < Formula
   license :cannot_represent
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
-  bottle :unneeded
-
   depends_on "docutils" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.9" => :build
+  depends_on "python@3.10" => :build
   depends_on xcode: :build
 
-  depends_on "openssl@1.1"
-  depends_on "lz4"
-  depends_on "xz"
-  depends_on "zstd"
-  depends_on "pkg-config"
-  depends_on "python@3.8"
-  depends_on "libffi"
-  depends_on "libpng"
-  depends_on "freetype"
-  depends_on "fontconfig"
-  depends_on "pcre"
-  depends_on "glib"
-  depends_on "gmp"
-  depends_on "libunistring"
-  depends_on "libidn2"
-  depends_on "nettle"
-  depends_on "gettext"
-  depends_on "jpeg"
-  depends_on "libtiff"
-  depends_on "little-cms2"
-  depends_on "libtasn1"
-  depends_on "gnutls"
-  depends_on "p11-kit"
-  depends_on "rtmpdump"
-  depends_on "sdl2"
-  depends_on "libb2"
-  depends_on "libbluray"
-  depends_on "fribidi"
-  depends_on "giflib"
-  depends_on "graphite2"
-  depends_on "harfbuzz"
-  depends_on "x264"
-  depends_on "x265"
-  depends_on "docutils"
-  depends_on "libarchive"
-  depends_on "libass"
-  depends_on "luajit"
-  depends_on "mujs"
-  depends_on "uchardet"
-  depends_on "youtube-dl"
-  depends_on "zimg"
-  depends_on "openjpeg"
-  depends_on "lame"
-  depends_on "webp"
-  depends_on "leptonica"
-  depends_on "srt"
-  depends_on "libogg"
-  depends_on "speex"
-  depends_on "tesseract"
-  depends_on "xvid"
-  depends_on "snappy"
-  depends_on "libvorbis"
-  depends_on "flac"
-  depends_on "libsndfile"
-  depends_on "libsamplerate"
-  depends_on "rubberband"
-  depends_on "opus"
-  depends_on "opencore-amr"
-  depends_on "libvpx"
-  depends_on "libvidstab"
-  depends_on "libsoxr"
-  depends_on "frei0r"
-  depends_on "aom"
-  depends_on "theora"
-  depends_on "dav1d"
-  depends_on "rav1e"
   depends_on "ffmpeg"
+  depends_on "libass"
+  depends_on "jpeg"
+  depends_on "libarchive"
+  depends_on "little-cms2"
+  depends_on "luajit-openresty"
+  depends_on "mujs"
+  depends_on "rubberband"
+  depends_on "uchardet"
+  depends_on "vapoursynth"
+  depends_on "zimg"
+
+  depends_on "yt-dlp" => :recommended
+  depends_on "subliminal" => :recommended
+
+  depends_on "jack" => :optional
+  depends_on "libaacs" => :optional
+  depends_on "libbluray" => :optional
+  depends_on "libcaca" => :optional
+  depends_on "libcdio" => :optional
+  depends_on "libdvdnav" => :optional
+  depends_on "libdvdread" => :optional
+  depends_on "sdl2" => :optional
 
   on_macos do
     depends_on "coreutils" => :recommended
@@ -126,10 +78,10 @@ class Mpv < Formula
     ]
     args << "--swift-flags=-O -wmo"
 
-    system Formula["python@3.9"].opt_bin/"python3", "bootstrap.py"
-    system Formula["python@3.9"].opt_bin/"python3", "waf", "configure", *args
-    system Formula["python@3.9"].opt_bin/"python3", "waf", "install"
-    system Formula["python@3.9"].opt_bin/"python3", "TOOLS/osxbundle.py", "build/mpv"
+    system Formula["python@3.10"].opt_bin/"python3", "bootstrap.py"
+    system Formula["python@3.10"].opt_bin/"python3", "waf", "configure", *args
+    system Formula["python@3.10"].opt_bin/"python3", "waf", "install"
+    system Formula["python@3.10"].opt_bin/"python3", "TOOLS/osxbundle.py", "build/mpv"
     prefix.install "build/mpv.app"
   end
 
