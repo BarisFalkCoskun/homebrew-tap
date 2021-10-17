@@ -28,6 +28,7 @@ class Mpv < Formula
   depends_on "zimg"
   depends_on "lame"
   depends_on "libav"
+  depends_on "webp"
   
   depends_on "yt-dlp" => :recommended
   depends_on "subliminal" => :recommended
