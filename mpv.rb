@@ -1,8 +1,8 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.33.1.tar.gz"
-  sha256 "100a116b9f23bdcda3a596e9f26be3a69f166a4f1d00910d1789b6571c46f3a9"
+  url "https://github.com/mpv-player/mpv/archive/v0.34.0.tar.gz"
+  sha256 "f654fb6275e5178f57e055d20918d7d34e19949bc98ebbf4a7371902e88ce309"
   license :cannot_represent
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
@@ -13,6 +13,7 @@ class Mpv < Formula
 
   depends_on "ffmpeg"
   depends_on "libass"
+  depends_on "yt-dlp"
   depends_on "jpeg"
   depends_on "libarchive"
   depends_on "little-cms2"
@@ -23,7 +24,6 @@ class Mpv < Formula
   depends_on "vapoursynth"
   depends_on "zimg"
 
-  depends_on "yt-dlp" => :recommended
   depends_on "subliminal" => :recommended
 
   depends_on "jack" => :optional
@@ -86,7 +86,7 @@ class Mpv < Formula
   end
 
   test do
-    system bin/"mpv", "--ao=null", test_fixtures("test.wav")
+    system bin/"mpv", "--ao=null", "--vo=null", test_fixtures("test.wav")
     assert_match "vapoursynth", shell_output(bin/"mpv --vf=help")
   end
 end
